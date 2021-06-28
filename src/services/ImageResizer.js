@@ -1,0 +1,4 @@
+class ImageResizer {
+    constructor() {
+    }
+}
