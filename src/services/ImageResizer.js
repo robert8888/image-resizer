@@ -38,7 +38,7 @@ export default class ImageResizer {
                         ...file,
                         ...info,
                         path,
-                        'downloadname': `${fileName}-${size}.${format}`
+                        'downloadname': `${fileName}-${info.width}x${info.height}.${format}`
                     }
                 })
         }))
