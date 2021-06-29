@@ -1,0 +1,9 @@
+@use "../abstracts/colors" as colors;
+.title{
+  text-align: center;
+  color: colors.$pallet-1;
+  font-size: 4rem;
+  font-family: cooper-black-std, serif;
+  font-weight: 400;
+  font-style: normal;
+}

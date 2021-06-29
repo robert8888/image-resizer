@@ -1,0 +1,21 @@
+html
+    head
+        include partial/head.pug
+    body
+        main
+            h1(class="title") Download
+            div
+                ul(class="image-list")
+                    each image in images
+                        li(class='image-list__item')
+                            p #{image.width} x #{image.height}
+                            img(class='image-list__image',
+                                src=image.url,
+                                width=image.width,
+                                height=image.height)
+                            a(class='image-list__link'
+                              href=image.url,
+                              download=image.downloadname
+                            ) Download
+            section(class='back-link')
+                a(href='/', class='link-button') Resize more

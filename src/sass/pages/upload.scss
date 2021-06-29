@@ -1,3 +1,20 @@
-.container{
-  background: black;
+@use "../base";
+@use "./common";
+
+@use "../components/select_dropdown";
+@use "../components/input_text";
+
+form{
+  label{
+    display: block;
+    margin: 2em 0 .5em 0;
+  }
+  section{
+    &.submit{
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+  }
 }
+

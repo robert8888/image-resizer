@@ -1,0 +1,14 @@
+$break-points:(
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px,
+  xxl: 1400px,
+);
+
+@mixin media($size){
+  @media screen and (min-width: map-get($break-points, $size)){
+    @content
+  }
+}

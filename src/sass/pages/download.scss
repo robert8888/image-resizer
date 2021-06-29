@@ -1,0 +1,12 @@
+@use "../base";
+@use "./common";
+@use "../components/image-list";
+
+.title{
+  font-size: 3rem;
+}
+
+section.back-link{
+  padding: 2rem;
+  text-align: center;
+}

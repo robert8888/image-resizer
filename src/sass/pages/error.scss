@@ -1,0 +1,17 @@
+@use "../base";
+@use "./common";
+
+html, body{
+  height: 100%;
+}
+
+main{
+  display: grid;
+  place-items: center;
+}
+
+.button__wrapper{
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}

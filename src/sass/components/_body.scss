@@ -1,0 +1,14 @@
+@use "../abstracts/colors" as colors;
+body{
+  background: colors.$pallet-3;
+  display: flex;
+  justify-content: center;
+  main{
+    max-width: 1200px;
+  }
+
+  color: colors.$pallet-0;
+  font-family: code-saver,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

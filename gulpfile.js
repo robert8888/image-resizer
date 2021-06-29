@@ -1,26 +1,34 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const clean = require('gulp-clean');
-const nodemon = require('gulp-nodemon');
-const babel = require('gulp-babel')
-const alias = require('gulp-path-alias');
-const path = require('path');
+import gulp from 'gulp'
+import gulpSass from "gulp-sass";
+import dartSass from "sass";
+import clean from 'gulp-clean'
+import nodemon from 'gulp-nodemon'
+import alias from 'gulp-path-alias'
+import path from 'path'
+
+const sass = gulpSass(dartSass)
+
 
 gulp.task('clean', function (){
     return gulp.src('./dist', {read: false, allowEmpty: true})
+        .pipe(gulp.src('./temp', {read: false, allowEmpty: true}))
         .pipe(clean());
+})
+
+gulp.task('structure', function (){
+    return gulp.src('*.*', {read: false})
+        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('./dist/public'))
+        .pipe(gulp.dest('./dist/public/download'))
 })
 
 gulp.task('js', function (){
     return gulp.src('./src/**/*.js')
         .pipe(alias({
             paths: {
-                '@routes': path.resolve(__dirname, './src/routes'),
-                '@services': path.resolve(__dirname, './src/services'),
+                '@routes': path.resolve('./src/routes'),
+                '@services': path.resolve('./src/services'),
             }
-        }))
-        .pipe(babel({
-            presets: ['@babel/env']
         }))
         .pipe(gulp.dest('dist/'));
 })
@@ -28,7 +36,7 @@ gulp.task('js', function (){
 gulp.task('sass', function () {
     return gulp.src('src/sass/**/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./dist/public/css'))
 });
 
 gulp.task('tpl', function (){
@@ -38,6 +46,7 @@ gulp.task('tpl', function (){
 
 gulp.task('build', gulp.series(
     'clean',
+    'structure',
     'tpl',
     'js',
     'sass'
@@ -48,6 +57,7 @@ gulp.task('develop', gulp.series('build', function (done) {
         script: './dist/server.js',
         watch: './src',
         tasks: ['build'],
+        ext: 'js json scss pug',
         env: {
             'NODE_ENV': 'development'
         },

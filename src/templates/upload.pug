@@ -1,5 +1,36 @@
 html
     head
-        title= title
+        include partial/head.pug
     body
-        h1= message
+        main
+            h1(class="title") Image Resizer
+            h4(class="subtitle") Pick file and select format
+            form(
+                action=action
+                method='post'
+                enctype='multipart/form-data'
+            )
+                section(class='file')
+                    label(for='image') File
+                    input(
+                        type="file"
+                        name="image"
+                        required
+                        accept=accept
+                    )
+                section(class='format')
+                    label(for='format') Format
+                    select(name='format', class='dropdown')
+                        each type in types
+                            option(val=type)=type
+                section(class='sizes')
+                    label(for='sizes') Widths - coma separated
+                    input(
+                        name="sizes"
+                        type="text"
+                        value="100,200,300"
+                        pattern="(\\d){1,4}([,](\\d){1,4})*"
+                        required
+                    )
+                section(class='submit')
+                    button(type="submit") Transform

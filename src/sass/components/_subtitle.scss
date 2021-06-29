@@ -1,0 +1,5 @@
+@use "../abstracts/colors" as colors;
+.subtitle{
+  color: colors.$pallet-0;
+  font-size: 1.25rem;
+}

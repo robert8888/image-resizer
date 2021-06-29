@@ -1,0 +1,10 @@
+@use "../abstracts/colors" as colors;
+
+button{
+  color: colors.$pallet-0;
+  font-size: 1.25rem;
+  padding: .35em .75em;
+  background: colors.$pallet-6;
+  border: 1px solid colors.$pallet-3;
+  border-radius: .25em;
+}

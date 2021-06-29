@@ -1,0 +1,38 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/mixins" as *;
+
+.image-list{
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+
+  @include media('lg'){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media('xl'){
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__item{
+    width: 300px;
+    padding: 1rem;
+    border: 2px;
+    border-radius: .25rem;
+    background: colors.$pallet-4;
+    display: grid;
+    grid-template-rows: 2rem 1fr 2rem;
+    place-items: center;
+    p{
+      margin: 0;
+    }
+    a{
+      margin-top: 1rem;
+    }
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

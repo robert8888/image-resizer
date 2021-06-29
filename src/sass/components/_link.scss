@@ -1,0 +1,18 @@
+@use "../abstracts/colors" as colors;
+@use "./button";
+
+a{
+  &:link,
+  &:active,
+  &:hover{
+    text-decoration: none;
+    color: colors.$pallet-0;
+  }
+  &:hover{
+    color: colors.$pallet-5;
+  }
+}
+
+a.link-button{
+  @extend button;
+}
