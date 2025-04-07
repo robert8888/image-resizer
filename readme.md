@@ -1,5 +1,5 @@
 ## Host
-https://img-resizer.herokuapp.com/
+https://img-resizer-0b37c59dada7.herokuapp.com/
 
 ### Scripts
 - development:    
